@@ -1,0 +1,6 @@
+# robots.txt for Denta Dental Clinic
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://denta-clinic.com/sitemap.xml
