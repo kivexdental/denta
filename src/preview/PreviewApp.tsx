@@ -36,7 +36,7 @@ export const PreviewApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0d1117] text-slate-100 overflow-hidden font-sans">
+    <div className="h-screen h-[100dvh] w-full flex flex-col bg-[#0d1117] text-slate-100 overflow-hidden font-sans">
       {/* 
         PERMANENT KIVEX PREVIEW APPLICATION TOOLBAR
       */}
@@ -85,8 +85,10 @@ export const PreviewApp: React.FC = () => {
         Centers the device frame or provides 100% fullscreen container.
       */}
       <main
-        className={`flex-1 flex flex-col items-center justify-start overflow-auto relative ${
-          deviceMode === 'fullscreen' ? 'p-0' : 'p-3 sm:p-6 md:p-8'
+        className={`flex-1 w-full min-h-0 relative flex flex-col ${
+          deviceMode === 'fullscreen'
+            ? 'p-0 overflow-hidden'
+            : 'items-center justify-start overflow-auto p-3 sm:p-6 md:p-8'
         }`}
         style={{
           background: deviceMode === 'fullscreen' ? 'transparent' : 'radial-gradient(circle at center, #161f2e 0%, #0a0d14 100%)',
@@ -94,7 +96,7 @@ export const PreviewApp: React.FC = () => {
       >
         {/* Device Frame Viewport Container */}
         {deviceMode === 'phone' && (
-          <div className="flex flex-col items-center my-auto animate-in zoom-in-95 duration-200">
+          <div className="flex flex-col items-center my-auto animate-in zoom-in-95 duration-200 shrink-0">
             {/* Phone Bezel Frame */}
             <div
               className="relative rounded-[48px] p-3 shadow-[0_25px_70px_rgba(0,0,0,0.85)] border-[4px] border-[#384152] bg-[#1e2532]"
@@ -136,7 +138,7 @@ export const PreviewApp: React.FC = () => {
         )}
 
         {deviceMode === 'tablet' && (
-          <div className="flex flex-col items-center my-auto animate-in zoom-in-95 duration-200">
+          <div className="flex flex-col items-center my-auto animate-in zoom-in-95 duration-200 shrink-0">
             {/* Tablet Bezel Frame */}
             <div
               className="relative rounded-[36px] p-4 shadow-[0_25px_70px_rgba(0,0,0,0.85)] border-[4px] border-[#384152] bg-[#1e2532]"
@@ -173,7 +175,7 @@ export const PreviewApp: React.FC = () => {
         )}
 
         {deviceMode === 'pc' && (
-          <div className="flex flex-col items-center w-full max-w-[1320px] my-auto animate-in zoom-in-95 duration-200">
+          <div className="flex flex-col items-center w-full max-w-[1320px] my-auto animate-in zoom-in-95 duration-200 shrink-0">
             {/* Desktop Mockup Frame */}
             <div className="w-full rounded-2xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.85)] border border-slate-700/80 bg-[#161c27]">
               {/* Browser Window Title Bar */}
@@ -216,12 +218,13 @@ export const PreviewApp: React.FC = () => {
         )}
 
         {deviceMode === 'fullscreen' && (
-          <div className="w-full h-full flex-1">
+          <div className="w-full h-full min-h-0 flex-1 relative">
             <iframe
               key={iframeKey}
               src={getPreviewUrl()}
               title="Dental Clinic Fullscreen Preview"
-              className="w-full h-full border-0 block"
+              className="w-full h-full border-0 block absolute inset-0"
+              style={{ width: '100%', height: '100%' }}
             />
           </div>
         )}

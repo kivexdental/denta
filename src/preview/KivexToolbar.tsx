@@ -25,7 +25,7 @@ export const KivexToolbar: React.FC<KivexToolbarProps> = ({
 
   return (
     <header
-      className="relative z-[9999] h-[52px] w-full border-b select-none flex items-center justify-between px-4 sm:px-6 shadow-sm"
+      className="relative z-[9999] h-[52px] w-full shrink-0 border-b select-none flex items-center justify-between px-4 sm:px-6 shadow-sm"
       style={{
         backgroundColor: '#F5EFE5',
         borderColor: '#E5DAC8',
