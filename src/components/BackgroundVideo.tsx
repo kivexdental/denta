@@ -42,7 +42,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
   }, [isMuted]);
 
   const blurClass = {
-    low: 'backdrop-blur-[2px]',
+    low: 'backdrop-blur-none',
     medium: 'backdrop-blur-[6px]',
     high: 'backdrop-blur-[12px]'
   }[blurLevel];
